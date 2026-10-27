@@ -1,14 +1,14 @@
 # 3DS Arcade
 
-A browser front end for EmulatorJS with a red dual-screen handheld layout and touch controls. In a modern browser, it can run Nintendo DS and Nintendo 3DS games selected from the user's device. It does not contain game ROMs.
+A browser front end for EmulatorJS with a red dual-screen handheld layout and touch controls. Its built-in five-slot library is labeled for Animal Crossing: Wild World, Nintendogs + Cats, both supplied Super Mario 3D Land files, and Animal Crossing: New Leaf.
 
 ## Use it
 
 1. Open the published page in a modern desktop or mobile browser. On first visit, the page may reload once to enable the threaded 3DS core.
-2. Choose **Nintendo DS** for `.nds` files, including Animal Crossing: Wild World. Choose **Nintendo 3DS** for `.3ds`, `.cia`, or zipped 3DS game files.
-3. Press **Choose game file** and select the file from the device. The original Nintendo 3DS browser is not supported.
+2. In **Game library**, choose **Import all game files** and select the five supplied files. The launcher matches each filename to its slot, including separate slots for the Mario ZIP and CIA files.
+3. The selected files are kept in that browser's IndexedDB storage so you can return and press **Play** without selecting them again. The original Nintendo 3DS browser is not supported.
 
-The browser passes the selected local `File` object directly to EmulatorJS. This page has no ROM upload endpoint and does not put selected files in the GitHub repository. EmulatorJS's engine is loaded from its official stable CDN. Game saves stay in this browser unless you sign in and explicitly enable cloud backup.
+The public GitHub Pages site contains the five game slots and launcher code, but not the commercial game files. Importing stores files in the current browser on the current device; it does not upload them to GitHub or Supabase. That browser-local library does not automatically move to another device. The file you choose is passed to EmulatorJS locally. EmulatorJS's engine is loaded from its official stable CDN. Game saves stay in this browser unless you sign in and explicitly enable cloud backup.
 
 ## Encrypted Supabase save backups
 
