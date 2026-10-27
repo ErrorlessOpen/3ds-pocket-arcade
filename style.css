@@ -1,0 +1,180 @@
+* { box-sizing: border-box; }
+html { min-height: 100%; background: #080909; }
+body { min-height: 100vh; margin: 0; background: #111313; color: #f3f4f5; font-family: Arial, Helvetica, sans-serif; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+#app { width: 100%; max-width: 1180px; margin: 0 auto; min-height: 100vh; background: #141617; box-shadow: 0 0 55px #000; }
+.topbar { height: 55px; padding: 0 20px; display: block; background: #202324; border-bottom: 1px solid #383c3d; line-height: 54px; }
+.logo { display: inline-block; color: #f7f7f7; text-decoration: none; font-weight: 900; letter-spacing: 1.3px; font-size: 14px; }
+.logo-dot { display: inline-block; width: 10px; height: 10px; margin-right: 8px; border-radius: 50%; background: #e84141; box-shadow: 0 0 0 4px #492729; }
+.live-label { float: right; color: #aeb4b6; font-size: 9px; letter-spacing: 1.4px; }
+.live-label b, .right-light b { display: inline-block; width: 6px; height: 6px; margin: 0 4px 1px 0; border-radius: 50%; background: #84d868; box-shadow: 0 0 8px #73e455; }
+main { padding: 19px 21px 14px; }
+.library { max-width: 900px; margin: 0 auto 14px; padding: 13px 15px 9px; border: 1px solid #363a3b; border-radius: 8px; background: #1b1e1f; }
+.library-copy { display: inline-block; width: 42%; vertical-align: top; }
+.eyebrow { margin: 0 0 4px; color: #e16a6a; font-size: 9px; font-weight: bold; letter-spacing: 1.6px; }
+h1 { margin: 0 0 5px; font-size: 20px; line-height: 1.1; }
+.subcopy { margin: 0; color: #aeb4b6; font-size: 11px; line-height: 1.4; }
+.system-picker { display: inline-block; width: 57%; vertical-align: top; text-align: right; }
+.system-choice { display: inline-block; min-width: 176px; height: 47px; margin: 0 0 0 5px; padding: 5px 8px; text-align: left; color: #e4e6e7; background: #222728; border: 1px solid #424849; border-radius: 6px; }
+.system-choice.active { border-color: #ed6161; background: #332223; box-shadow: inset 0 0 0 1px #803f41; }
+.system-icon { float: left; width: 36px; height: 32px; margin-right: 7px; border-radius: 4px; line-height: 32px; text-align: center; font-size: 10px; font-weight: 900; color: #fff; background: #586c9f; }
+.three-icon { background: #a33d44; }
+.system-choice b { display: block; padding-top: 3px; font-size: 11px; }
+.system-choice small { display: block; margin-top: 2px; color: #aeb4b6; font-size: 9px; }
+.load-button { display: block; width: 100%; min-height: 39px; margin: 9px 0 5px; border: 1px solid #f46c6c; border-radius: 6px; background: #d84249; color: #fff; text-align: center; line-height: 37px; font-size: 12px; font-weight: bold; box-shadow: inset 0 1px 0 #f78e8e, 0 2px 0 #782a30; cursor: pointer; }
+.load-button:active { background: #b8373e; }
+.load-button input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+.upload-icon { margin-right: 7px; font-size: 17px; vertical-align: -1px; }
+.status { min-height: 14px; margin: 5px 0 0; color: #c3c8ca; text-align: center; font-size: 10px; }
+.status.error { color: #ff9b9b; }
+.console { max-width: 1050px; margin: 0 auto; padding: 12px 17px 0; border: 1px solid #393c3d; border-radius: 16px 16px 26px 26px; background: linear-gradient(115deg, #323637, #202425 35%, #333738); box-shadow: 0 5px 16px #050505, inset 0 1px 2px #606565; }
+.console-lights { height: 14px; margin: 0 8px 8px; color: #aeb3b4; font-size: 8px; letter-spacing: 2px; }
+.console-lights i { display: inline-block; width: 5px; height: 5px; margin-right: 7px; border-radius: 50%; background: #e44d55; box-shadow: 0 0 6px #f44; }
+.right-light { float: right; letter-spacing: 1px; }
+.right-light b { margin-left: 5px; }
+#game-shell { position: relative; width: 100%; min-height: 380px; overflow: hidden; background: #030303; border: 5px solid #0c0d0d; border-radius: 4px; box-shadow: 0 0 0 1px #606566, inset 0 0 18px #000; }
+.welcome { position: absolute; z-index: 1; top: 0; left: 0; width: 100%; min-height: 100%; padding: 48px 14px 30px; background: #050505; text-align: center; }
+.screen-logo { color: #ec4e55; font-size: 30px; font-weight: 900; letter-spacing: 2px; }
+.screen-logo span { display: block; margin-top: -2px; color: #f4f4f4; font-size: 12px; letter-spacing: 5px; }
+.welcome-rule { width: 60px; height: 2px; margin: 18px auto; background: #b63940; }
+.welcome p { margin: 7px 0; color: #e2e4e5; font-size: 13px; }
+.welcome .welcome-small { margin-top: 40px; color: #9ba1a3; font-size: 10px; line-height: 1.6; }
+#game { position: relative; width: 100%; min-height: 380px; background: #050505; }
+#game canvas { display: block; max-width: 100%; margin: 0 auto; object-fit: contain; }
+.console-hinge { height: 18px; margin: 0 -6px; display: table; width: calc(100% + 12px); border-top: 2px solid #161819; border-bottom: 1px solid #3b3f40; background: linear-gradient(#202425, #292e2f); text-align: center; }
+* { box-sizing: border-box; }
+html { min-height: 100%; background: #080909; }
+body { min-height: 100vh; margin: 0; background: #111313; color: #f3f4f5; font-family: Arial, Helvetica, sans-serif; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+#app { width: 100%; max-width: 1180px; margin: 0 auto; min-height: 100vh; background: #141617; box-shadow: 0 0 55px #000; }
+.topbar { height: 55px; padding: 0 20px; display: block; background: #202324; border-bottom: 1px solid #383c3d; line-height: 54px; }
+.logo { display: inline-block; color: #f7f7f7; text-decoration: none; font-weight: 900; letter-spacing: 1.3px; font-size: 14px; }
+.logo-dot { display: inline-block; width: 10px; height: 10px; margin-right: 8px; border-radius: 50%; background: #e84141; box-shadow: 0 0 0 4px #492729; }
+.live-label { float: right; color: #aeb4b6; font-size: 9px; letter-spacing: 1.4px; }
+.live-label b, .right-light b { display: inline-block; width: 6px; height: 6px; margin: 0 4px 1px 0; border-radius: 50%; background: #84d868; box-shadow: 0 0 8px #73e455; }
+main { padding: 19px 21px 14px; }
+.library { max-width: 900px; margin: 0 auto 14px; padding: 13px 15px 9px; border: 1px solid #363a3b; border-radius: 8px; background: #1b1e1f; }
+.library-copy { display: inline-block; width: 42%; vertical-align: top; }
+.eyebrow { margin: 0 0 4px; color: #e16a6a; font-size: 9px; font-weight: bold; letter-spacing: 1.6px; }
+h1 { margin: 0 0 5px; font-size: 20px; line-height: 1.1; }
+.subcopy { margin: 0; color: #aeb4b6; font-size: 11px; line-height: 1.4; }
+.system-picker { display: inline-block; width: 57%; vertical-align: top; text-align: right; }
+.system-choice { display: inline-block; min-width: 176px; height: 47px; margin: 0 0 0 5px; padding: 5px 8px; text-align: left; color: #e4e6e7; background: #222728; border: 1px solid #424849; border-radius: 6px; }
+.system-choice.active { border-color: #ed6161; background: #332223; box-shadow: inset 0 0 0 1px #803f41; }
+.system-icon { float: left; width: 36px; height: 32px; margin-right: 7px; border-radius: 4px; line-height: 32px; text-align: center; font-size: 10px; font-weight: 900; color: #fff; background: #586c9f; }
+.three-icon { background: #a33d44; }
+.system-choice b { display: block; padding-top: 3px; font-size: 11px; }
+.system-choice small { display: block; margin-top: 2px; color: #aeb4b6; font-size: 9px; }
+.load-button { display: block; width: 100%; min-height: 39px; margin: 9px 0 5px; border: 1px solid #f46c6c; border-radius: 6px; background: #d84249; color: #fff; text-align: center; line-height: 37px; font-size: 12px; font-weight: bold; box-shadow: inset 0 1px 0 #f78e8e, 0 2px 0 #782a30; cursor: pointer; }
+.load-button:active { background: #b8373e; }
+.load-button input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+.upload-icon { margin-right: 7px; font-size: 17px; vertical-align: -1px; }
+.status { min-height: 14px; margin: 5px 0 0; color: #c3c8ca; text-align: center; font-size: 10px; }
+.status.error { color: #ff9b9b; }
+.console { max-width: 1050px; margin: 0 auto; padding: 12px 17px 0; border: 1px solid #393c3d; border-radius: 16px 16px 26px 26px; background: linear-gradient(115deg, #323637, #202425 35%, #333738); box-shadow: 0 5px 16px #050505, inset 0 1px 2px #606565; }
+.console-lights { height: 14px; margin: 0 8px 8px; color: #aeb3b4; font-size: 8px; letter-spacing: 2px; }
+.console-lights i { display: inline-block; width: 5px; height: 5px; margin-right: 7px; border-radius: 50%; background: #e44d55; box-shadow: 0 0 6px #f44; }
+.right-light { float: right; letter-spacing: 1px; }
+.right-light b { margin-left: 5px; }
+#game-shell { position: relative; width: 100%; min-height: 380px; overflow: hidden; background: #030303; border: 5px solid #0c0d0d; border-radius: 4px; box-shadow: 0 0 0 1px #606566, inset 0 0 18px #000; }
+.welcome { position: absolute; z-index: 1; top: 0; left: 0; width: 100%; min-height: 100%; padding: 48px 14px 30px; background: #050505; text-align: center; }
+.screen-logo { color: #ec4e55; font-size: 30px; font-weight: 900; letter-spacing: 2px; }
+.screen-logo span { display: block; margin-top: -2px; color: #f4f4f4; font-size: 12px; letter-spacing: 5px; }
+.welcome-rule { width: 60px; height: 2px; margin: 18px auto; background: #b63940; }
+.welcome p { margin: 7px 0; color: #e2e4e5; font-size: 13px; }
+.welcome .welcome-small { margin-top: 40px; color: #9ba1a3; font-size: 10px; line-height: 1.6; }
+#game { position: relative; width: 100%; min-height: 380px; background: #050505; }
+#game canvas { display: block; max-width: 100%; margin: 0 auto; object-fit: contain; }
+.console-hinge { height: 18px; margin: 0 -6px; display: table; width: calc(100% + 12px); border-top: 2px solid #161819; border-bottom: 1px solid #3b3f40; background: linear-gradient(#202425, #292e2f); text-align: center; }
+.console-hinge span { display: table-cell; width: 23%; }
+.console-hinge .hinge-name { width: 54%; color: #828889; font-size: 7px; letter-spacing: 2px; line-height: 15px; }
+.console-controls { height: 157px; position: relative; margin: 0 -4px; }
+.dpad-art { position: absolute; left: 8%; top: 30px; width: 62px; height: 62px; }
+.dpad-art .pad-vertical, .dpad-art .pad-horizontal, .dpad-art b { display: block; position: absolute; background: #16191a; border: 1px solid #505657; box-shadow: inset 0 1px 2px #777; }
+.dpad-art .pad-vertical { left: 21px; top: 0; width: 20px; height: 62px; border-radius: 4px; }
+.dpad-art .pad-horizontal { left: 0; top: 21px; width: 62px; height: 20px; border-radius: 4px; }
+.dpad-art b { left: 21px; top: 21px; width: 20px; height: 20px; border: 0; box-shadow: none; background: #202425; }
+.pad-touch { position: absolute; z-index: 2; padding: 0; border: 0; background: transparent; touch-action: none; }
+.pad-up { left: 21px; top: 0; width: 20px; height: 22px; }.pad-down { left: 21px; top: 40px; width: 20px; height: 22px; }.pad-left { left: 0; top: 21px; width: 22px; height: 20px; }.pad-right { left: 40px; top: 21px; width: 22px; height: 20px; }
+.stick-art { position: absolute; left: 38%; top: 28px; width: 69px; height: 69px; padding: 0; border-radius: 50%; background: #171a1b; border: 1px solid #4b5152; box-shadow: inset 0 2px 5px #606566; touch-action: none; cursor: pointer; }
+.stick-art i { position: absolute; inset: 8px; border-radius: 50%; border: 2px solid #7b8081; }
+.stick-art b { position: absolute; inset: 18px; border-radius: 50%; background: radial-gradient(#444a4b,#171a1b); border: 1px solid #818687; }
+.face-art { position: absolute; right: 8%; top: 18px; width: 86px; height: 88px; }
+.face-art button { position: absolute; width: 31px; height: 31px; padding: 0; line-height: 29px; text-align: center; border-radius: 50%; border: 1px solid #5c6263; background: #191c1d; color: #c9cdce; font-size: 11px; font-weight: bold; box-shadow: inset 0 1px 2px #6a7071; touch-action: none; }
+.face-art .x { left: 28px; top: 0; }.face-art .y { left: 0; top: 28px; }.face-art .a { left: 56px; top: 28px; }.face-art .b { left: 28px; top: 56px; }
+.select-start { position: absolute; left: 50%; top: 110px; margin-left: -72px; text-align: center; white-space: nowrap; }
+.select-start button { display: inline-block; width: 50px; height: 13px; margin: 0 4px; padding: 0; border: 1px solid #676d6e; border-radius: 8px; background: #191c1d; color: #b9bfc0; font-size: 6px; letter-spacing: 1px; line-height: 11px; touch-action: none; }
+.info-panel { max-width: 850px; margin: 14px auto 8px; padding: 10px 12px; border: 1px solid #363a3b; border-radius: 7px; background: #1b1e1f; }
+.info-icon { float: left; width: 22px; height: 22px; margin: 1px 9px 10px 0; border: 1px solid #d85a60; border-radius: 50%; color: #eb777b; text-align: center; line-height: 20px; font-weight: bold; font-family: Georgia, serif; }
+.info-panel b { color: #e8e9ea; font-size: 11px; }
+.info-panel p { margin: 3px 0 0; color: #aeb4b6; font-size: 10px; line-height: 1.4; }
+.compat-note { max-width: 850px; margin: 7px auto; color: #92999b; font-size: 9px; line-height: 1.4; text-align: center; }
+footer { padding: 12px 0 2px; color: #737a7c; text-align: center; font-size: 8px; letter-spacing: 1.3px; }
+footer span { margin: 0 5px; color: #df5b61; }
+
+@media (max-width: 600px) {
+  main { padding: 11px 7px; }
+  .topbar { padding: 0 11px; }
+  .library { padding: 10px 8px 7px; }
+  .library-copy { display: block; width: 100%; margin-bottom: 9px; }
+  .system-picker { display: table; width: 100%; table-layout: fixed; text-align: left; }
+  .system-choice { display: table-cell; width: 50%; min-width: 0; height: 45px; margin: 0; padding: 4px; }
+  .system-choice + .system-choice { margin-left: 4px; }
+  .system-icon { width: 31px; height: 31px; margin-right: 5px; }
+  .system-choice b { font-size: 10px; }
+  .system-choice small { font-size: 8px; }
+  .console { padding: 9px 8px 0; border-radius: 13px 13px 21px 21px; }
+  #game-shell, #game { min-height: 480px; }
+  .console-controls { height: 124px; }
+  .dpad-art { left: 5%; top: 23px; transform: scale(.8); transform-origin: left top; }
+  .stick-art { left: 39%; top: 23px; transform: scale(.82); transform-origin: left top; }
+  .face-art { right: 3%; top: 14px; transform: scale(.82); transform-origin: right top; }
+  .select-start { top: 91px; }
+  .compat-note { padding: 0 8px; }
+}.console-hinge .hinge-name { width: 54%; color: #828889; font-size: 7px; letter-spacing: 2px; line-height: 15px; }
+.console-controls { height: 157px; position: relative; margin: 0 -4px; }
+.dpad-art { position: absolute; left: 8%; top: 30px; width: 62px; height: 62px; }
+.dpad-art .pad-vertical, .dpad-art .pad-horizontal, .dpad-art b { display: block; position: absolute; background: #16191a; border: 1px solid #505657; box-shadow: inset 0 1px 2px #777; }
+.dpad-art .pad-vertical { left: 21px; top: 0; width: 20px; height: 62px; border-radius: 4px; }
+.dpad-art .pad-horizontal { left: 0; top: 21px; width: 62px; height: 20px; border-radius: 4px; }
+.dpad-art b { left: 21px; top: 21px; width: 20px; height: 20px; border: 0; box-shadow: none; background: #202425; }
+.pad-touch { position: absolute; z-index: 2; padding: 0; border: 0; background: transparent; touch-action: none; }
+.pad-up { left: 21px; top: 0; width: 20px; height: 22px; }.pad-down { left: 21px; top: 40px; width: 20px; height: 22px; }.pad-left { left: 0; top: 21px; width: 22px; height: 20px; }.pad-right { left: 40px; top: 21px; width: 22px; height: 20px; }
+.stick-art { position: absolute; left: 38%; top: 28px; width: 69px; height: 69px; padding: 0; border-radius: 50%; background: #171a1b; border: 1px solid #4b5152; box-shadow: inset 0 2px 5px #606566; touch-action: none; cursor: pointer; }
+.stick-art i { position: absolute; inset: 8px; border-radius: 50%; border: 2px solid #7b8081; }
+.stick-art b { position: absolute; inset: 18px; border-radius: 50%; background: radial-gradient(#444a4b,#171a1b); border: 1px solid #818687; }
+.face-art { position: absolute; right: 8%; top: 18px; width: 86px; height: 88px; }
+.face-art button { position: absolute; width: 31px; height: 31px; padding: 0; line-height: 29px; text-align: center; border-radius: 50%; border: 1px solid #5c6263; background: #191c1d; color: #c9cdce; font-size: 11px; font-weight: bold; box-shadow: inset 0 1px 2px #6a7071; touch-action: none; }
+.face-art .x { left: 28px; top: 0; }.face-art .y { left: 0; top: 28px; }.face-art .a { left: 56px; top: 28px; }.face-art .b { left: 28px; top: 56px; }
+.select-start { position: absolute; left: 50%; top: 110px; margin-left: -72px; text-align: center; white-space: nowrap; }
+.select-start button { display: inline-block; width: 50px; height: 13px; margin: 0 4px; padding: 0; border: 1px solid #676d6e; border-radius: 8px; background: #191c1d; color: #b9bfc0; font-size: 6px; letter-spacing: 1px; line-height: 11px; touch-action: none; }
+.info-panel { max-width: 850px; margin: 14px auto 8px; padding: 10px 12px; border: 1px solid #363a3b; border-radius: 7px; background: #1b1e1f; }
+.info-icon { float: left; width: 22px; height: 22px; margin: 1px 9px 10px 0; border: 1px solid #d85a60; border-radius: 50%; color: #eb777b; text-align: center; line-height: 20px; font-weight: bold; font-family: Georgia, serif; }
+.info-panel b { color: #e8e9ea; font-size: 11px; }
+.info-panel p { margin: 3px 0 0; color: #aeb4b6; font-size: 10px; line-height: 1.4; }
+.compat-note { max-width: 850px; margin: 7px auto; color: #92999b; font-size: 9px; line-height: 1.4; text-align: center; }
+footer { padding: 12px 0 2px; color: #737a7c; text-align: center; font-size: 8px; letter-spacing: 1.3px; }
+footer span { margin: 0 5px; color: #df5b61; }
+
+@media (max-width: 600px) {
+  main { padding: 11px 7px; }
+  .topbar { padding: 0 11px; }
+  .library { padding: 10px 8px 7px; }
+  .library-copy { display: block; width: 100%; margin-bottom: 9px; }
+  .system-picker { display: table; width: 100%; table-layout: fixed; text-align: left; }
+  .system-choice { display: table-cell; width: 50%; min-width: 0; height: 45px; margin: 0; padding: 4px; }
+  .system-choice + .system-choice { margin-left: 4px; }
+  .system-icon { width: 31px; height: 31px; margin-right: 5px; }
+  .system-choice b { font-size: 10px; }
+  .system-choice small { font-size: 8px; }
+  .console { padding: 9px 8px 0; border-radius: 13px 13px 21px 21px; }
+  #game-shell, #game { min-height: 480px; }
+  .console-controls { height: 124px; }
+  .dpad-art { left: 5%; top: 23px; transform: scale(.8); transform-origin: left top; }
+  .stick-art { left: 39%; top: 23px; transform: scale(.82); transform-origin: left top; }
+  .face-art { right: 3%; top: 14px; transform: scale(.82); transform-origin: right top; }
+  .select-start { top: 91px; }
+  .compat-note { padding: 0 8px; }
+}
