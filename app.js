@@ -4,12 +4,13 @@ var emulatorStarted = false;
 
 function chooseSystem(system) {
   selectedSystem = system;
+  document.querySelector(".console").className = "console " + (system === "3ds" ? "system-3ds" : "system-ds");
   document.getElementById("ds-choice").className = system === "nds" ? "system-choice active" : "system-choice";
   document.getElementById("3ds-choice").className = system === "3ds" ? "system-choice active" : "system-choice";
   if (system === "3ds" && !window.crossOriginIsolated) {
-    setStatus("3DS mode needs COOP/COEP isolation headers. GitHub Pages does not provide them; DS mode works here.", "error");
+    setStatus("3DS mode needs browser support for SharedArrayBuffer. Open this page in a modern desktop browser.", "error");
   } else if (system === "3ds") {
-    setStatus("3DS mode selected. Choose a .3ds, .cia, or .zip file.", "normal");
+    setStatus("3DS mode ready. Choose a .3ds, .cia, or .zip file.", "normal");
   } else {
     setStatus("DS mode selected. Choose a .nds or .zip file.", "normal");
   }
@@ -47,7 +48,7 @@ function loadGame(file) {
       return;
     }
     if (!window.crossOriginIsolated || typeof SharedArrayBuffer === "undefined") {
-      setStatus("This host cannot start the 3DS core: it requires COOP/COEP headers and SharedArrayBuffer. GitHub Pages does not allow custom response headers. Your game file was not uploaded.", "error");
+      setStatus("This browser cannot start the 3DS core because it does not support SharedArrayBuffer. Your game file was not uploaded.", "error");
       return;
     }
     core = "3ds";
@@ -74,8 +75,8 @@ function loadGame(file) {
     {type: "zone", location: "right", left: "50%", top: "25%", joystickInput: true, color: "white", inputValues: [19, 18, 17, 16]},
     {type: "button", text: "X", id: "x", location: "right", left: 39, top: 92, bold: true, input_value: 1},
     {type: "button", text: "Y", id: "y", location: "right", left: 0, top: 131, bold: true, input_value: 9},
-    {type: "button", text: "B", id: "b", location: "right", left: 78, top: 131, bold: true, input_value: 8},
-    {type: "button", text: "A", id: "a", location: "right", left: 39, top: 170, bold: true, input_value: 0},
+    {type: "button", text: "B", id: "b", location: "right", left: 78, top: 131, bold: true, input_value: 0},
+    {type: "button", text: "A", id: "a", location: "right", left: 39, top: 170, bold: true, input_value: 8},
     {type: "button", text: "SELECT", id: "select", location: "center", left: -48, top: 8, fontSize: 11, input_value: 2},
     {type: "button", text: "START", id: "start", location: "center", left: 14, top: 8, fontSize: 11, input_value: 3}
   ];
@@ -162,6 +163,7 @@ document.getElementById("rom-file").onchange = function () {
   if (this.files && this.files.length > 0) { loadGame(this.files[0]); }
 };
 
+document.querySelector(".console").className = "console system-ds";
 var controlButtons = document.querySelectorAll(".console-controls [data-input]");
 var controlIndex;
 for (controlIndex = 0; controlIndex < controlButtons.length; controlIndex += 1) { bindTouchButton(controlButtons[controlIndex]); }
