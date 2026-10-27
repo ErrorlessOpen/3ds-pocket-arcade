@@ -55,6 +55,7 @@ function loadGame(file) {
   }
 
   name = file.name.replace(/\.[^.]+$/, "");
+  if (window.CloudSave) { window.CloudSave.setGame(name, file.size); }
   document.getElementById("welcome").style.display = "none";
   document.getElementById("game").innerHTML = "";
   document.getElementById("game").style.display = "block";
@@ -66,6 +67,10 @@ function loadGame(file) {
   window.EJS_pathtodata = dataPath;
   window.EJS_startOnLoaded = true;
   window.EJS_threads = core === "3ds";
+  window.EJS_fixedSaveInterval = 15000;
+  window.EJS_onSaveUpdate = function (event) {
+    if (window.CloudSave && event && event.save) { window.CloudSave.uploadSave(event.save); }
+  };
   window.EJS_browserMode = "mobile";
   window.EJS_color = "#e64b52";
   window.EJS_backgroundColor = "#050505";
