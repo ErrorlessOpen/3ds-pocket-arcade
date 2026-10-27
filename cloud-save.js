@@ -107,7 +107,7 @@
     var body;
     try { body = accountBody(); } catch (error) { setStatus(error.message, true); return; }
     setStatus("Creating your Supabase account…");
-    api("/auth/v1/signup", "POST", body, null)
+    api("/auth/v1/signup?redirect_to=" + encodeURIComponent(window.location.origin + window.location.pathname), "POST", body, null)
       .then(function (result) {
         if (result && result.access_token) { storeSession(result); }
         if (accountPasswordNode) { accountPasswordNode.value = ""; }
