@@ -61,6 +61,7 @@ function loadGame(file) {
 
   name = file.name.replace(/\.[^.]+$/, "");
   if (window.CloudSave) { window.CloudSave.setGame(name, file.size); }
+  document.body.classList.add("playing");
   document.getElementById("welcome").style.display = "none";
   document.getElementById("game").innerHTML = "";
   document.getElementById("game").style.display = "block";
@@ -374,6 +375,10 @@ function initializeGameLibrary() {
 document.getElementById("rom-file").onchange = function () {
   if (this.files && this.files.length > 0) { loadGame(this.files[0]); }
 };
+
+document.getElementById("exit-game").addEventListener("click", function () {
+  window.location.reload();
+});
 
 document.querySelector(".console").className = "console system-ds";
 var controlButtons = document.querySelectorAll(".console-controls [data-input]");
