@@ -264,7 +264,7 @@
   loadSession();
   updateButtons();
   if (!baseUrl || !anonKey) {
-    setStatus("Supabase setup is pending. Add the project URL and public anon key to cloud-config.js; saves remain in this browser until then.");
+    setStatus("Supabase setup is pending. Add the project URL and public publishable key to cloud-config.js; saves remain in this browser until then.");
   } else if (!window.fetch || !window.crypto || !window.crypto.subtle || typeof TextEncoder === "undefined") {
     setStatus("Cloud saves require a modern browser with Web Crypto support.", true);
   } else if (userId) {
