@@ -26,7 +26,7 @@ Publish the files in this folder from the root of a GitHub repository using **Se
 
 The viewport is set to 320 pixels to fit the 3DS browser's documented HTML width. The page may display in that browser, but the emulator itself cannot run there: Nintendo's published browser specifications do not list WebAssembly, which EmulatorJS uses. The emulator requires a modern browser.
 
-Nintendo DS mode uses EmulatorJS's `nds` core. EmulatorJS's 3DS core is Azahar and requires `EJS_threads = true`; EmulatorJS says that requires `SharedArrayBuffer` enabled by cross-origin isolation. The included service worker supplies the needed isolation policy on GitHub Pages. A compatible modern browser is required for 3DS mode.
+Nintendo DS mode uses EmulatorJS's `nds` core. 3DS mode uses EmulatorJS's `azahar` core from its nightly CDN because Azahar is not present in the stable core directory. It requires `EJS_threads = true` and `SharedArrayBuffer` enabled by cross-origin isolation. Nightly cores can change, and a compatible modern browser is required for 3DS mode.
 
 3DS emulation can also require system archives from a console. This site does not provide Nintendo system files or firmware.
 
