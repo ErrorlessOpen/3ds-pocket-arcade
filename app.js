@@ -55,7 +55,8 @@ function loadGame(file) {
       setStatus("This browser cannot start the 3DS core because it does not support SharedArrayBuffer. Your game file was not uploaded.", "error");
       return;
     }
-    core = "3ds";
+    core = "azahar";
+    dataPath = "https://cdn.emulatorjs.org/nightly/data/";
   }
 
   name = file.name.replace(/\.[^.]+$/, "");
@@ -66,11 +67,12 @@ function loadGame(file) {
   setStatus("Loading " + escapeHtml(name) + "… the emulator engine may take a moment to download.", "normal");
 
   window.EJS_player = "#game";
-  window.EJS_gameUrl = file;
+  window.EJS_gameUrl = URL.createObjectURL(file);
+  window.EJS_gameName = name;
   window.EJS_core = core;
   window.EJS_pathtodata = dataPath;
   window.EJS_startOnLoaded = true;
-  window.EJS_threads = core === "3ds";
+  window.EJS_threads = core === "azahar";
   window.EJS_fixedSaveInterval = 15000;
   window.EJS_onSaveUpdate = function (event) {
     if (window.CloudSave && event && event.save) { window.CloudSave.uploadSave(event.save); }
