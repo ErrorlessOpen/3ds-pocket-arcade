@@ -14,6 +14,8 @@ The browser passes the selected local `File` object directly to EmulatorJS. This
 
 Cloud backup is off until a Supabase project is configured. Run `supabase/schema.sql` in the Supabase SQL Editor, then put the project URL and its **public anon key** in `cloud-config.js`. Never put a `service_role` key in this public website. The table uses row-level security so signed-in users can access only their own records.
 
+Set the Supabase Auth site URL and allowed redirect URL to `https://errorlessopen.github.io/3ds-pocket-arcade/` so account confirmation returns to this page.
+
 In the page, create or sign in to a Supabase account, load a game, choose a save passphrase of at least 12 characters, and enable encrypted auto-backup. Save bytes are encrypted in the browser with AES-GCM before upload; the passphrase is never sent to Supabase or saved by the site. It must be entered again after a reload. Use **Download latest save** to download and then load the `.sav` file through EmulatorJS. Losing the passphrase means the encrypted cloud backup cannot be restored.
 
 The Supabase project URL/key are currently blank in `cloud-config.js`, so the live site keeps saves in the browser and sends nothing to Supabase until a project is configured.
