@@ -1,29 +1,30 @@
 # 3DS Arcade
 
-A browser front end for EmulatorJS with a 3DS-inspired screen and touch-control layout. It can run a Nintendo DS game selected from your device in a modern browser. It does not contain game ROMs.
+A browser front end for EmulatorJS with a red dual-screen handheld layout and touch controls. In a modern browser, it can run Nintendo DS and Nintendo 3DS games selected from the user's device. It does not contain game ROMs.
 
 ## Use it
 
-1. Open the published page in a modern desktop or mobile browser.
-2. Choose Nintendo DS for .nds files, including the Animal Crossing: Wild World .nds file. Choose Nintendo 3DS for .3ds, .cia, or zipped 3DS game files.
-3. Press Choose game file and select the file from the device.
+1. Open the published page in a modern desktop or mobile browser. On first visit, the page may reload once to enable the threaded 3DS core.
+2. Choose **Nintendo DS** for `.nds` files, including Animal Crossing: Wild World. Choose **Nintendo 3DS** for `.3ds`, `.cia`, or zipped 3DS game files.
+3. Press **Choose game file** and select the file from the device. The original Nintendo 3DS browser is not supported.
 
-The browser passes the selected local File object directly to EmulatorJS. This page has no ROM upload endpoint and does not put selected files in the GitHub repository. EmulatorJS's engine is loaded from its official stable CDN.
+The browser passes the selected local `File` object directly to EmulatorJS. This page has no ROM upload endpoint and does not put selected files in the GitHub repository. EmulatorJS's engine is loaded from its official stable CDN. Browser game saves remain in the browser; cloud save sync has not been configured.
 
 ## GitHub Pages and compatibility
 
-Publish the files in this folder from the root of a GitHub repository using Settings → Pages → Deploy from a branch → main → /(root). The address will be https://YOUR-USERNAME.github.io/REPOSITORY/.
+Publish the files in this folder from the root of a GitHub repository using **Settings → Pages → Deploy from a branch → main → /(root)**. The address will be `https://YOUR-USERNAME.github.io/REPOSITORY/`. The included `coi-serviceworker.js` adds the cross-origin isolation response headers required by the threaded 3DS core, then reloads the page once so modern browsers can use `SharedArrayBuffer` on GitHub Pages.
 
-This is a modern-browser emulator page, not an emulator that runs inside the Nintendo 3DS Internet Browser. Nintendo documents that browser's limited HTML/CSS/ECMAScript support but not WebAssembly. EmulatorJS documents that its emulator cores use WebAssembly and target modern browsers.
+The viewport is set to 320 pixels to fit the 3DS browser's documented HTML width. The page may display in that browser, but the emulator itself cannot run there: Nintendo's published browser specifications do not list WebAssembly, which EmulatorJS uses. The emulator requires a modern browser.
 
-Nintendo DS mode uses EmulatorJS's nds core. EmulatorJS's 3DS core is Azahar and requires EJS_threads = true; EmulatorJS says that requires SharedArrayBuffer exposed through the Cross-Origin-Opener-Policy: same-origin and Cross-Origin-Embedder-Policy: require-corp response headers. Standard GitHub Pages does not allow per-site custom response headers, so its published page cannot enable 3DS mode. The page checks for cross-origin isolation and reports this instead of trying to start a 3DS game on an incompatible host.
+Nintendo DS mode uses EmulatorJS's `nds` core. EmulatorJS's 3DS core is Azahar and requires `EJS_threads = true`; EmulatorJS says that requires `SharedArrayBuffer` enabled by cross-origin isolation. The included service worker supplies the needed isolation policy on GitHub Pages. A compatible modern browser is required for 3DS mode.
 
 3DS emulation can also require system archives from a console. This site does not provide Nintendo system files or firmware.
 
 ## Files
 
-- index.html — game loader and console-style layout
-- style.css — responsive 3DS-inspired screen and controls
-- app.js — EmulatorJS configuration and local file selection
+- `index.html` — game loader and console-style layout
+- `style.css` — responsive 3DS-inspired screen and controls
+- `app.js` — EmulatorJS configuration and local file selection
+- `coi-serviceworker.js` — cross-origin isolation workaround for threaded 3DS emulation on static hosts
 
 EmulatorJS is a third-party project and is loaded from its official CDN. This site is not affiliated with Nintendo.
