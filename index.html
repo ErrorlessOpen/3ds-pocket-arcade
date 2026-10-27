@@ -16,10 +16,24 @@
     </header>
 
     <main id="top">
+      <section class="game-library" aria-labelledby="game-library-title">
+        <div class="game-library-heading">
+          <div>
+            <p class="eyebrow">YOUR FIVE GAME FILES</p>
+            <h1 id="game-library-title">Game library</h1>
+            <p class="subcopy">Import your files once. They stay in this browser and are never sent to the website.</p>
+          </div>
+          <label class="import-library-button" for="library-files">＋ Import all game files</label>
+          <input id="library-files" type="file" multiple accept=".nds,.zip,.3ds,.cci,.cia,.cxi,.app,application/zip" aria-label="Import your game files">
+        </div>
+        <div id="game-library-list" class="game-grid" aria-live="polite"></div>
+        <p id="library-status" class="library-status" role="status">Your five library slots are empty. Pick the game files from Downloads to install them in this browser.</p>
+      </section>
+
       <section class="library" aria-label="Load a game">
         <div class="library-copy">
           <p class="eyebrow">YOUR POCKET PLAYER</p>
-          <h1>Pick a game file</h1>
+          <h1>Load another game</h1>
           <p class="subcopy">Choose a system, then open a game from your device.</p>
         </div>
         <div class="system-picker" role="group" aria-label="Game system">
