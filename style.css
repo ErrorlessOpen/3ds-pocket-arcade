@@ -17,6 +17,7 @@ main { padding: 19px 21px 14px; }
 .game-library-heading .subcopy { max-width: 470px; }
 .import-library-button { display: inline-block; flex: 0 0 auto; padding: 10px 12px; border: 1px solid #f46c6c; border-radius: 6px; background: #d84249; color: #fff; font-size: 11px; font-weight: bold; text-align: center; cursor: pointer; box-shadow: inset 0 1px 0 #f78e8e, 0 2px 0 #782a30; }
 #library-files { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+.game-library-file { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
 .game-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 12px; }
 .game-card { min-width: 0; padding: 10px; border: 1px solid #363c3d; border-radius: 7px; background: #222627; }
 .game-card-top { display: flex; align-items: flex-start; gap: 8px; }
