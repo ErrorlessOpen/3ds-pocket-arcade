@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=320, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="theme-color" content="#171717">
+  <script src="coi-serviceworker.js"></script>
   <title>3DS Arcade</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -42,7 +43,7 @@
             <div class="screen-logo">3DS<span>ARCADE</span></div>
             <div class="welcome-rule"></div>
             <p>Load a game to turn on the screen.</p>
-            <p class="welcome-small">DS games can run in a modern browser.<br>The 3DS Internet Browser cannot run this emulator.</p>
+            <p class="welcome-small">DS and 3DS games can run in a modern browser.<br>The original 3DS Internet Browser cannot run this emulator.</p>
           </div>
           <div id="game" aria-label="Game display"></div>
         </div>
@@ -59,8 +60,8 @@
           <div class="face-art" aria-label="Action buttons">
             <button class="x" data-input="1" aria-label="X">X</button>
             <button class="y" data-input="9" aria-label="Y">Y</button>
-            <button class="a" data-input="0" aria-label="A">A</button>
-            <button class="b" data-input="8" aria-label="B">B</button>
+            <button class="a" data-input="8" aria-label="A">A</button>
+            <button class="b" data-input="0" aria-label="B">B</button>
           </div>
           <div class="select-start"><button data-input="2">SELECT</button><button data-input="3">START</button></div>
         </div>
@@ -68,9 +69,9 @@
 
       <section class="info-panel">
         <div class="info-icon">i</div>
-        <div><b>How it works</b><p>The emulator downloads its engine from EmulatorJS. Your selected game file is read locally and is not uploaded to this site.</p></div>
+        <div><b>How it works</b><p>The emulator downloads its engine from EmulatorJS. Game files stay on your device; saves stay in this browser until a cloud service is configured.</p></div>
       </section>
-      <p class="compat-note">For a modern computer or phone browser. Public GitHub Pages can run DS games; 3DS emulation needs special server headers that GitHub Pages does not provide.</p>
+        <p class="compat-note">For a modern computer or phone browser. First visit may reload once to enable 3DS emulation. The original 3DS Internet Browser cannot run this emulator.</p>
       <footer>3DS ARCADE <span>•</span> EmulatorJS core</footer>
     </main>
   </div>
