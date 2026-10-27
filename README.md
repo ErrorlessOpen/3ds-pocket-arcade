@@ -8,7 +8,15 @@ A browser front end for EmulatorJS with a red dual-screen handheld layout and to
 2. Choose **Nintendo DS** for `.nds` files, including Animal Crossing: Wild World. Choose **Nintendo 3DS** for `.3ds`, `.cia`, or zipped 3DS game files.
 3. Press **Choose game file** and select the file from the device. The original Nintendo 3DS browser is not supported.
 
-The browser passes the selected local `File` object directly to EmulatorJS. This page has no ROM upload endpoint and does not put selected files in the GitHub repository. EmulatorJS's engine is loaded from its official stable CDN. Browser game saves remain in the browser; cloud save sync has not been configured.
+The browser passes the selected local `File` object directly to EmulatorJS. This page has no ROM upload endpoint and does not put selected files in the GitHub repository. EmulatorJS's engine is loaded from its official stable CDN. Game saves remain in this browser unless you configure the optional Supabase backup below.
+
+## Optional Supabase save backups
+
+Cloud backup is off until a Supabase project is configured. Run `supabase/schema.sql` in the Supabase SQL Editor, then put the project URL and its **public anon key** in `cloud-config.js`. Never put a `service_role` key in this public website. The table uses row-level security so signed-in users can access only their own records.
+
+In the page, create or sign in to a Supabase account, load a game, choose a save passphrase of at least 12 characters, and enable encrypted auto-backup. Save bytes are encrypted in the browser with AES-GCM before upload; the passphrase is never sent to Supabase or saved by the site. It must be entered again after a reload. Use **Download latest save** to download and then load the `.sav` file through EmulatorJS. Losing the passphrase means the encrypted cloud backup cannot be restored.
+
+The Supabase project URL/key are currently blank in `cloud-config.js`, so the live site keeps saves in the browser and sends nothing to Supabase until a project is configured.
 
 ## GitHub Pages and compatibility
 
@@ -26,5 +34,7 @@ Nintendo DS mode uses EmulatorJS's `nds` core. EmulatorJS's 3DS core is Azahar a
 - `style.css` — responsive 3DS-inspired screen and controls
 - `app.js` — EmulatorJS configuration and local file selection
 - `coi-serviceworker.js` — cross-origin isolation workaround for threaded 3DS emulation on static hosts
+- `cloud-save.js` and `cloud-config.js` — optional encrypted backup client and public project configuration
+- `supabase/schema.sql` — row-level secured save table
 
 EmulatorJS is a third-party project and is loaded from its official CDN. This site is not affiliated with Nintendo.
