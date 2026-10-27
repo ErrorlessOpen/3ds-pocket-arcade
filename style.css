@@ -68,6 +68,17 @@ h1 { margin: 0 0 5px; font-size: 20px; line-height: 1.1; }
 .info-icon { float: left; width: 22px; height: 22px; margin: 1px 9px 10px 0; border: 1px solid #d85a60; border-radius: 50%; color: #eb777b; text-align: center; line-height: 20px; font-weight: bold; font-family: Georgia, serif; }
 .info-panel b { color: #e8e9ea; font-size: 11px; }
 .info-panel p { margin: 3px 0 0; color: #aeb4b6; font-size: 10px; line-height: 1.4; }
+.cloud-panel { max-width: 560px; margin: 12px auto 8px; padding: 14px; border: 1px solid #493336; border-radius: 9px; background: #1b1e1f; }
+.cloud-panel h2 { margin: 0 0 5px; font-size: 16px; }
+.cloud-copy, .cloud-note, .cloud-status { color: #aeb4b6; font-size: 10px; line-height: 1.5; }
+.cloud-panel label { display: block; margin: 9px 0 6px; color: #e4e6e7; font-size: 10px; font-weight: bold; }
+.cloud-panel input { display: block; width: 100%; height: 34px; margin-top: 4px; padding: 0 9px; border: 1px solid #494e4f; border-radius: 5px; background: #111415; color: #fff; font-size: 12px; }
+.cloud-actions { display: flex; gap: 7px; margin: 8px 0; }
+.cloud-actions button { min-height: 33px; padding: 0 10px; border: 1px solid #a33d44; border-radius: 5px; background: #332223; color: #f4eeee; font-size: 10px; font-weight: bold; }
+.cloud-actions button:disabled { opacity: .48; cursor: not-allowed; }
+.cloud-status { min-height: 15px; margin: 8px 0 0; color: #dedfe0; }
+.cloud-status.error { color: #ff9b9b; }
+.cloud-note { margin: 5px 0 0; font-size: 9px; }
 .compat-note { max-width: 850px; margin: 7px auto; color: #92999b; font-size: 9px; line-height: 1.4; text-align: center; }
 footer { padding: 12px 0 2px; color: #737a7c; text-align: center; font-size: 8px; letter-spacing: 1.3px; }
 footer span { margin: 0 5px; color: #df5b61; }
