@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#171717">
   <script src="coi-serviceworker.js"></script>
   <title>3DS Arcade</title>
-  <link rel="stylesheet" href="style.css?v=library-2">
+  <link rel="stylesheet" href="style.css?v=corner-ui-1">
 </head>
 <body>
   <div id="app">
@@ -53,6 +53,7 @@
       <section class="console" aria-label="Emulator screen">
         <div class="console-lights"><i></i><span>PLAYER 1</span><span class="right-light">POWER <b></b></span></div>
         <div id="game-shell">
+          <button id="exit-game" class="exit-game" type="button" aria-label="Return to the game library">×</button>
           <div id="welcome" class="welcome">
             <div class="screen-logo">3DS<span>ARCADE</span></div>
             <div class="welcome-rule"></div>
@@ -103,6 +104,6 @@
   </div>
   <script src="cloud-config.js"></script>
   <script src="cloud-save.js"></script>
-  <script src="app.js?v=library-2"></script>
+  <script src="app.js?v=corner-ui-1"></script>
 </body>
 </html>
