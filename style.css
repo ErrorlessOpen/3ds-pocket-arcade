@@ -10,7 +10,7 @@ button { cursor: pointer; }
 .live-label { float: right; color: #aeb4b6; font-size: 9px; letter-spacing: 1.4px; }
 .live-label b, .right-light b { display: inline-block; width: 6px; height: 6px; margin: 0 4px 1px 0; border-radius: 50%; background: #84d868; box-shadow: 0 0 8px #73e455; }
 main { padding: 19px 21px 14px; }
-.library { max-width: 900px; margin: 0 auto 14px; padding: 13px 15px 9px; border: 1px solid #363a3b; border-radius: 8px; background: #1b1e1f; }
+.library { max-width: 560px; margin: 0 auto 14px; padding: 13px 15px 9px; border: 1px solid #363a3b; border-radius: 8px; background: #1b1e1f; }
 .library-copy { display: inline-block; width: 42%; vertical-align: top; }
 .eyebrow { margin: 0 0 4px; color: #e16a6a; font-size: 9px; font-weight: bold; letter-spacing: 1.6px; }
 h1 { margin: 0 0 5px; font-size: 20px; line-height: 1.1; }
@@ -28,19 +28,22 @@ h1 { margin: 0 0 5px; font-size: 20px; line-height: 1.1; }
 .upload-icon { margin-right: 7px; font-size: 17px; vertical-align: -1px; }
 .status { min-height: 14px; margin: 5px 0 0; color: #c3c8ca; text-align: center; font-size: 10px; }
 .status.error { color: #ff9b9b; }
-.console { max-width: 1050px; margin: 0 auto; padding: 12px 17px 0; border: 1px solid #393c3d; border-radius: 16px 16px 26px 26px; background: linear-gradient(115deg, #323637, #202425 35%, #333738); box-shadow: 0 5px 16px #050505, inset 0 1px 2px #606565; }
+.console { max-width: 620px; margin: 0 auto; padding: 12px 17px 0; border: 1px solid #e55760; border-radius: 28px 28px 40px 40px; background: linear-gradient(115deg, #d84950, #8f222b 38%, #c4363e); box-shadow: 0 5px 16px #050505, inset 0 1px 2px #fa777c; }
 .console-lights { height: 14px; margin: 0 8px 8px; color: #aeb3b4; font-size: 8px; letter-spacing: 2px; }
 .console-lights i { display: inline-block; width: 5px; height: 5px; margin-right: 7px; border-radius: 50%; background: #e44d55; box-shadow: 0 0 6px #f44; }
 .right-light { float: right; letter-spacing: 1px; }
 .right-light b { margin-left: 5px; }
-#game-shell { position: relative; width: 100%; min-height: 380px; overflow: hidden; background: #030303; border: 5px solid #0c0d0d; border-radius: 4px; box-shadow: 0 0 0 1px #606566, inset 0 0 18px #000; }
+#game-shell { position: relative; width: 100%; min-height: 480px; aspect-ratio: 5 / 6; overflow: hidden; background: #030303; border: 5px solid #0c0d0d; border-radius: 4px; box-shadow: 0 0 0 1px #606566, inset 0 0 18px #000; }
 .welcome { position: absolute; z-index: 1; top: 0; left: 0; width: 100%; min-height: 100%; padding: 48px 14px 30px; background: #050505; text-align: center; }
 .screen-logo { color: #ec4e55; font-size: 30px; font-weight: 900; letter-spacing: 2px; }
 .screen-logo span { display: block; margin-top: -2px; color: #f4f4f4; font-size: 12px; letter-spacing: 5px; }
 .welcome-rule { width: 60px; height: 2px; margin: 18px auto; background: #b63940; }
 .welcome p { margin: 7px 0; color: #e2e4e5; font-size: 13px; }
 .welcome .welcome-small { margin-top: 40px; color: #9ba1a3; font-size: 10px; line-height: 1.6; }
-#game { position: relative; width: 100%; min-height: 380px; background: #050505; }
+#game { position: relative; width: 100%; height: 100%; min-height: 480px; background: #050505; }
+.system-ds #game-shell, .system-ds #game { aspect-ratio: 2 / 3; }
+.system-3ds #game-shell, .system-3ds #game { aspect-ratio: 5 / 6; }
+@supports (aspect-ratio: 5 / 6) { #game-shell, #game { min-height: 0; } }
 #game canvas { display: block; max-width: 100%; margin: 0 auto; object-fit: contain; }
 .console-hinge { height: 18px; margin: 0 -6px; display: table; width: calc(100% + 12px); border-top: 2px solid #161819; border-bottom: 1px solid #3b3f40; background: linear-gradient(#202425, #292e2f); text-align: center; }
 .console-hinge span { display: table-cell; width: 23%; }
@@ -81,7 +84,6 @@ footer span { margin: 0 5px; color: #df5b61; }
   .system-choice b { font-size: 10px; }
   .system-choice small { font-size: 8px; }
   .console { padding: 9px 8px 0; border-radius: 13px 13px 21px 21px; }
-  #game-shell, #game { min-height: 480px; }
   .console-controls { height: 124px; }
   .dpad-art { left: 5%; top: 23px; transform: scale(.8); transform-origin: left top; }
   .stick-art { left: 39%; top: 23px; transform: scale(.82); transform-origin: left top; }
