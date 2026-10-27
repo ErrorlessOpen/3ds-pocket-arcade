@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=320, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#171717">
+  <title>3DS Arcade</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <a class="logo" href="#top" aria-label="3DS Arcade home"><span class="logo-dot"></span><span>3DS ARCADE</span></a>
+      <span class="live-label"><b></b> LOCAL PLAY</span>
+    </header>
+
+    <main id="top">
+      <section class="library" aria-label="Load a game">
+        <div class="library-copy">
+          <p class="eyebrow">YOUR POCKET PLAYER</p>
+          <h1>Pick a game file</h1>
+          <p class="subcopy">Choose a system, then open a game from your device.</p>
+        </div>
+        <div class="system-picker" role="group" aria-label="Game system">
+          <button type="button" id="ds-choice" class="system-choice active" onclick="chooseSystem('nds')">
+            <span class="system-icon ds-icon">DS</span><span><b>Nintendo DS</b><small>.nds or .zip</small></span>
+          </button>
+          <button type="button" id="3ds-choice" class="system-choice" onclick="chooseSystem('3ds')">
+            <span class="system-icon three-icon">3DS</span><span><b>Nintendo 3DS</b><small>.3ds, .cia or .zip</small></span>
+          </button>
+        </div>
+        <label class="load-button" for="rom-file"><span class="upload-icon">＋</span><span>Choose game file</span>
+          <input id="rom-file" type="file" accept=".nds,.zip,.3ds,.cci,.cia,.cxi,.app,application/zip">
+        </label>
+        <p id="status" class="status" role="status">Select a game file to begin. The file stays in this browser.</p>
+      </section>
+
+      <section class="console" aria-label="Emulator screen">
+        <div class="console-lights"><i></i><span>PLAYER 1</span><span class="right-light">POWER <b></b></span></div>
+        <div id="game-shell">
+          <div id="welcome" class="welcome">
+            <div class="screen-logo">3DS<span>ARCADE</span></div>
+            <div class="welcome-rule"></div>
+            <p>Load a game to turn on the screen.</p>
+            <p class="welcome-small">DS games can run in a modern browser.<br>The 3DS Internet Browser cannot run this emulator.</p>
+          </div>
+          <div id="game" aria-label="Game display"></div>
+        </div>
+        <div class="console-hinge"><span></span><span class="hinge-name">DUAL SCREEN PLAYER</span><span></span></div>
+        <div class="console-controls" aria-label="Touch controls">
+          <div class="dpad-art" aria-label="Directional pad">
+            <span class="pad-vertical"></span><span class="pad-horizontal"></span><b></b>
+            <button class="pad-touch pad-up" data-input="4" aria-label="Up"></button>
+            <button class="pad-touch pad-down" data-input="5" aria-label="Down"></button>
+            <button class="pad-touch pad-left" data-input="6" aria-label="Left"></button>
+            <button class="pad-touch pad-right" data-input="7" aria-label="Right"></button>
+          </div>
+          <div class="stick-art" id="circle-pad" aria-label="Circle pad"><i></i><b></b></div>
+          <div class="face-art" aria-label="Action buttons">
+            <button class="x" data-input="1" aria-label="X">X</button>
+            <button class="y" data-input="9" aria-label="Y">Y</button>
+            <button class="a" data-input="0" aria-label="A">A</button>
+            <button class="b" data-input="8" aria-label="B">B</button>
+          </div>
+          <div class="select-start"><button data-input="2">SELECT</button><button data-input="3">START</button></div>
+        </div>
+      </section>
+
+      <section class="info-panel">
+        <div class="info-icon">i</div>
+        <div><b>How it works</b><p>The emulator downloads its engine from EmulatorJS. Your selected game file is read locally and is not uploaded to this site.</p></div>
+      </section>
+      <p class="compat-note">For a modern computer or phone browser. Public GitHub Pages can run DS games; 3DS emulation needs special server headers that GitHub Pages does not provide.</p>
+      <footer>3DS ARCADE <span>•</span> EmulatorJS core</footer>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
